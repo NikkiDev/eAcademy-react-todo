@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap');
+$clr-primary: #ff5722;
+$clr-app: #303841;
+$clr-txt: #eeeeee;
+$clr-btn: #00adb5;
+$gradient-clr: radial-gradient(
+  circle,
+  #d16ba5,
+  #c777b9,
+  #ba83ca,
+  #aa8fd8,
+  #9a9ae1,
+  #8aa7ec,
+  #79b3f4,
+  #69bff8,
+  #52cffe,
+  #41dfff,
+  #46eefa,
+  #5ffbf1
+);
+$text-size: 1.1rem;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background: $gradient-clr;
+}
+.app-container {
+  position: relative;
+  background-color: $clr-app;
+  opacity: 0.9;
+  width: 50vw;
+  height: 50vh;
+  margin: 25vh auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+.error {
+  position: absolute;
+  width: 100%;
+  top: -35px;
+
+  p {
+    text-align: center;
+    color: #cc0000;
+    font-size: $text-size;
+    text-transform: capitalize;
+  }
+}
+.list-container {
+  width: 80%;
+  margin: 5vh auto;
+  display: flex;
+  justify-content: center;
+  input {
+    background: none;
+    color: $clr-txt;
+    width: 500px;
+    font-size: $text-size;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid $clr-btn;
+    &::placeholder {
+      font: {
+        size: $text-size;
+        style: italic;
+      }
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  button {
+    font-size: 1.5rem;
+    margin-left: 10px;
+  }
+}
+.todo-list {
+  width: 100%;
+}
+ul {
+  overflow-y: auto;
+  height: 280px;
+  li {
+    display: flex;
+    // flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 2px solid $clr-btn;
+    margin: 15px 30px;
+    padding: 0px 10px;
+    input {
+      background: none;
+      color: $clr-primary;
+      padding-left: 10px;
+      border: none;
+      // border-bottom: 1px solid $clr-btn;
+      font-size: $text-size;
+      &:focus {
+        outline: none;
+      }
+    }
+    p {
+      display: inline;
+      color: $clr-txt;
+      padding: 10px;
+      font-size: $text-size;
+    }
+  }
+}
+.global-container {
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.btn {
+  color: $clr-btn;
+  background: none;
+  padding: 0px 5px;
+  border: none;
+  font-size: $text-size;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    transform: scale(1.1);
+    color: $clr-primary;
+  }
+}
+.checked {
+  color: #9ede73;
+  text-decoration: line-through;
+}
