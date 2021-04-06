@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { FaTrashAlt } from 'react-icons/fa'
-import { FaCheck } from 'react-icons/fa'
+import { FaTrashAlt, FaCheck } from 'react-icons/fa'
+import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io'
 import { MdEdit } from 'react-icons/md'
 import { GiSaveArrow } from 'react-icons/gi'
-import { IoIosArrowUp } from 'react-icons/io'
-import { IoIosArrowDown } from 'react-icons/io'
 
 class Todotask extends Component {
   constructor(props) {
@@ -39,7 +37,11 @@ class Todotask extends Component {
               <input
                 className='edit-input'
                 type='text'
-                Value={this.props.todo.name}
+                value={
+                  this.state.editedInputValue
+                    ? this.props.todo.name
+                    : this.state.editedInputValue
+                }
                 onChange={(e) => this.props.handleEditInput(e.target.value)}
               />
               <button

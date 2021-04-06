@@ -1,11 +1,13 @@
 import React from 'react'
-import Todo from './Components/TodoUsingClasses/Todo'
-import '../src/Components/Todo.css'
+// import Todolist from './Components/TodoUsingHooks/Todolist'
+// import '../src/Components/TodoUsingHooks/Todo.scss'
+import Todolist from './Components/TodoUsingClasses/Todolist'
+import '../src/Components/TodoUsingClasses/Todo.css'
 
 function App() {
   return (
     <div className='app-container'>
-      <Todo />
+      <Todolist />
     </div>
   )
 }

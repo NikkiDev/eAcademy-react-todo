@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Todo from './Todo'
+import Todotask from './Todotask'
 import { FaPlus } from 'react-icons/fa'
 import { v4 as uuidv4 } from 'uuid'
 const Todolist = () => {
@@ -56,7 +56,6 @@ const Todolist = () => {
     }
   }
   const handleEditChange = (value) => {
-    console.log(value)
     setEditInputText(value)
   }
   const handleEditSave = (index, todo) => {
@@ -178,7 +177,7 @@ const Todolist = () => {
       <div className='todo-container'>
         <ul className='todo'>
           {addTodo.map((todo, index) => (
-            <Todo
+            <Todotask
               key={todo.id}
               id={todo.id}
               todo={todo}

@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 import './Todo.css'
 import Todotask from './Todotask'
 
-class Todo extends React.Component {
+class Todolist extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -219,6 +219,7 @@ class Todo extends React.Component {
                 removeTodo={this.removeTodo}
                 editTodo={this.editTodo}
                 markChecked={this.markChecked}
+                editedInputValue={this.editedInputValue}
               />
             ))}
           </ul>
@@ -251,4 +252,4 @@ class Todo extends React.Component {
   }
 }
 
-export default Todo
+export default Todolist

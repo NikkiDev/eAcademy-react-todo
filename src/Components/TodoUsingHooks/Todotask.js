@@ -1,11 +1,8 @@
 import React from 'react'
-import { FaArrowDown } from 'react-icons/fa'
-import { FaArrowUp } from 'react-icons/fa'
+import { FaArrowDown, FaArrowUp, FaTrashAlt, FaCheck } from 'react-icons/fa'
 import { MdEdit } from 'react-icons/md'
-import { FaTrashAlt } from 'react-icons/fa'
-import { FaCheck } from 'react-icons/fa'
 import { GiSaveArrow } from 'react-icons/gi'
-const Todo = (props) => {
+const Todotask = (props) => {
   const {
     text,
     id,
@@ -74,4 +71,4 @@ const Todo = (props) => {
   )
 }
 
-export default Todo
+export default Todotask
