@@ -29,7 +29,7 @@ class Todotask extends Component {
           </button>
           <input
             type='checkbox'
-            onChange={() => this.props.changeHandler(this.props.todo)}
+            onChange={() => this.props.changeHandler(this.props.index)}
             checked={this.props.todo.checked}
           />
           {this.props.todo.id === this.props.state.id ? (
@@ -81,7 +81,7 @@ class Todotask extends Component {
           <button
             className='btn'
             type='button'
-            onClick={() => this.props.markChecked(this.props.todo)}
+            onClick={() => this.props.markChecked(this.props.index)}
           >
             <FaCheck />
           </button>

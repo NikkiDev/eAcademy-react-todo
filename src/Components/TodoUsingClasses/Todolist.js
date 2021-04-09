@@ -95,10 +95,12 @@ class Todolist extends React.Component {
       todos: newTodos,
     }))
   }
-  markChecked = (todo) => {
-    todo.isDone = !todo.isDone
+  markChecked = (index) => {
+    const someArr = [...this.state.todos]
+    console.log(someArr[index])
+    someArr[index].isDone = someArr[index].isDone ? false : true
     this.setState(() => ({
-      todos: this.state.todos,
+      todos: someArr,
     }))
   }
   moveUp = (index) => {
@@ -158,11 +160,11 @@ class Todolist extends React.Component {
       todos: someArr,
     }))
   }
-  changeHandler = (todo) => {
-    todo.checked = !todo.checked
+  changeHandler = (index) => {
+    const someArr = [...this.state.todos]
+    someArr[index].checked = someArr[index].checked ? false : true
     this.setState(() => ({
-      todos: this.state.todos,
-      error: '',
+      todos: someArr,
     }))
   }
   clearDone = () => {
