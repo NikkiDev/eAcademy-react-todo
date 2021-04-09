@@ -176,6 +176,11 @@ class Todolist extends React.Component {
       error: '',
     }))
   }
+  handleKeyPress = (e) => {
+    if (e.charCode === 13) {
+      this.handleSetNewTodo()
+    }
+  }
   render() {
     return (
       <section className='todo-list'>
@@ -189,6 +194,7 @@ class Todolist extends React.Component {
               type='text'
               placeholder='Enter your task here'
               value={this.state.inputValue}
+              onKeyPress={(e) => this.handleKeyPress(e)}
               onChange={(e) => this.handleChange(e.target.value)}
             />
           </div>
