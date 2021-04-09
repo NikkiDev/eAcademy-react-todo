@@ -7,7 +7,7 @@
 }
 body {
   font-family: 'Poppins', sans-serif;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #fb743e;
   width: 100vw;
   height: 100vh;
@@ -79,7 +79,7 @@ body {
   height: 350px;
   width: 95%;
   margin: 0px auto;
-  overflow: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: none;
 }
