@@ -14,7 +14,7 @@ const Todolist = () => {
     setInputText(e.target.value)
   }
   const handleClick = () => {
-    if (!inputText) {
+    if (!inputText.trim()) {
       setError('theres nothing to do')
       return
     } else if (addTodo.filter((todo) => todo.text === inputText).length > 0) {
@@ -59,7 +59,7 @@ const Todolist = () => {
     setEditInputText(value)
   }
   const handleEditSave = (index, todo) => {
-    if (!inputEditText) {
+    if (!inputEditText.trim()) {
       setStateID(null)
       setEditInputText(null)
       return

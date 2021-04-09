@@ -20,7 +20,11 @@ class Todolist extends React.Component {
     this.setState({ inputValue: value })
   }
   handleSetNewTodo = () => {
-    if (this.state.inputValue === '') {
+    // if (this.state.inputValue === '') {
+    //   this.setState(() => ({
+    //     error: "You can't enter empty task",
+    //   }))
+    if (!this.state.inputValue.trim()) {
       this.setState(() => ({
         error: "You can't enter empty task",
       }))
@@ -62,7 +66,7 @@ class Todolist extends React.Component {
     }))
   }
   saveEditedInput = (todo, index) => {
-    if (this.state.editedInputValue === '') {
+    if (!this.state.editedInputValue.trim()) {
       this.setState(() => ({
         id: -1,
       }))
