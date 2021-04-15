@@ -56,7 +56,7 @@ class Todolist extends React.Component {
 
   editTodo = (id) => {
     this.setState(() => ({
-      // editMode: !this.state.editMode,
+      editedInputValue: '',
       id: id,
     }))
   }
@@ -231,7 +231,6 @@ class Todolist extends React.Component {
                 removeTodo={this.removeTodo}
                 editTodo={this.editTodo}
                 markChecked={this.markChecked}
-                editedInputValue={this.editedInputValue}
               />
             ))}
           </ul>

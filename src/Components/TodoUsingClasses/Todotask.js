@@ -38,9 +38,9 @@ class Todotask extends Component {
                 className='edit-input'
                 type='text'
                 value={
-                  this.state.editedInputValue
+                  this.props.state.editedInputValue === ''
                     ? this.props.todo.name
-                    : this.state.editedInputValue
+                    : this.props.state.editedInputValue
                 }
                 onChange={(e) => this.props.handleEditInput(e.target.value)}
               />
