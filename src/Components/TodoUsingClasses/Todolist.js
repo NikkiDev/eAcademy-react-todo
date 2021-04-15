@@ -25,17 +25,13 @@ class Todolist extends React.Component {
     //     error: "You can't enter empty task",
     //   }))
     if (!this.state.inputValue.trim()) {
-      this.setState(() => ({
-        error: "You can't enter empty task",
-      }))
+      this.setState({ error: "You can't enter empty task" })
       return
     } else if (
       this.state.todos.filter((todo) => todo.name === this.state.inputValue)
         .length > 0
     ) {
-      this.setState(() => ({
-        error: 'You Already have that Task',
-      }))
+      this.setState({ error: 'You Already have that Task' })
       return
     }
     if (this.state.inputValue) {
@@ -46,30 +42,23 @@ class Todolist extends React.Component {
         id: uuidv4(),
       }
 
-      this.setState(() => ({
+      this.setState({
         todos: [...this.state.todos, task],
         inputValue: '',
         error: '',
-      }))
+      })
     }
   }
 
   editTodo = (id) => {
-    this.setState(() => ({
-      editedInputValue: '',
-      id: id,
-    }))
+    this.setState({ editedInputValue: '', id: id })
   }
   handleEditInput = (value) => {
-    this.setState(() => ({
-      editedInputValue: value,
-    }))
+    this.setState({ editedInputValue: value })
   }
   saveEditedInput = (todo, index) => {
     if (!this.state.editedInputValue.trim()) {
-      this.setState(() => ({
-        id: -1,
-      }))
+      this.setState({ id: -1 })
       return
     }
     if (
@@ -78,109 +67,72 @@ class Todolist extends React.Component {
           todo.name === this.state.editedInputValue && idx !== index
       ).length > 0
     ) {
-      this.setState(() => ({
-        error: 'You already have this task',
-      }))
+      this.setState({ error: 'You already have this task' })
       return
     }
     todo.name = this.state.editedInputValue
-    this.setState(() => ({
-      id: null,
-      error: '',
-    }))
+    this.setState({ id: null, error: '' })
   }
   removeTodo = (id) => {
     let newTodos = this.state.todos.filter((elem) => elem.id !== id)
-    this.setState(() => ({
-      todos: newTodos,
-    }))
+    this.setState({ todos: newTodos })
   }
   markChecked = (index) => {
     const someArr = [...this.state.todos]
-    console.log(someArr[index])
     someArr[index].isDone = someArr[index].isDone ? false : true
-    this.setState(() => ({
-      todos: someArr,
-    }))
+    this.setState({ todos: someArr })
   }
   moveUp = (index) => {
     if (index === 0) {
-      return this.setState(() => ({
-        error: 'Theres No More Way Up :)',
-      }))
+      return this.setState({ error: 'Theres No More Way Up :)' })
     } else {
       let someArr = [...this.state.todos]
       let temp = someArr[index]
       someArr[index] = someArr[index - 1]
       someArr[index - 1] = temp
-      this.setState(() => ({
-        todos: someArr,
-        error: '',
-      }))
+      this.setState({ todos: someArr, error: '' })
     }
   }
   moveDown = (index) => {
     let someArr = [...this.state.todos]
     if (index === someArr.length - 1) {
-      return this.setState(() => ({
-        error: 'Theres No More Way Down :(',
-      }))
+      return this.setState({ error: 'Theres No More Way Down :(' })
     } else {
       let temp = someArr[index]
       someArr[index] = someArr[index + 1]
       someArr[index + 1] = temp
-      this.setState(() => ({
-        todos: someArr,
-        error: '',
-      }))
+      this.setState({ todos: someArr, error: '' })
     }
   }
   clearAll = () => {
     if (this.state.todos.length === 0) {
-      return this.setState(() => ({
-        error: 'Everything is already Clear',
-      }))
+      return this.setState({ error: 'Everything is already Clear' })
     }
-    this.setState(() => ({
-      todos: [],
-      error: '',
-      inputValue: '',
-    }))
+    this.setState({ todos: [], error: '', inputValue: '' })
   }
   clearChecked = () => {
     let someArr = [...this.state.todos]
     someArr = someArr.filter((todo) => todo.checked === true)
     if (someArr.length === 0) {
-      this.setState(() => ({
-        error: 'You didnt ckecked any Tasks',
-      }))
+      this.setState({ error: 'You didnt ckecked any Tasks' })
     }
     someArr = this.state.todos.filter((todo) => todo.checked === false)
-    this.setState(() => ({
-      todos: someArr,
-    }))
+    this.setState({ todos: someArr })
   }
   changeHandler = (index) => {
     const someArr = [...this.state.todos]
     someArr[index].checked = someArr[index].checked ? false : true
-    this.setState(() => ({
-      todos: someArr,
-    }))
+    this.setState({ todos: someArr })
   }
   clearDone = () => {
     let someArr = [...this.state.todos]
     someArr = someArr.filter((todo) => todo.isDone === true)
     if (someArr.length === 0) {
-      return this.setState(() => ({
-        error: 'You havent done any task yet',
-      }))
+      return this.setState({ error: 'You havent done any task yet' })
     }
     someArr = this.state.todos.filter((todo) => todo.isDone === false)
 
-    this.setState(() => ({
-      todos: someArr,
-      error: '',
-    }))
+    this.setState({ todos: someArr, error: '' })
   }
   handleKeyPress = (e) => {
     if (e.charCode === 13) {
